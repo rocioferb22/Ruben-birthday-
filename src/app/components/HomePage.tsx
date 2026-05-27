@@ -7,19 +7,19 @@ const events = [
     id: '1',
     title: 'Un regalo',
     targetDate: new Date('2026-06-22T00:00:00'),
-    description: 'Algo pensado para que lo lleves contigo y te acompañe en tu día a día. Un detalle sencillo, pero con mucho estilo, que te hará lucir mucho más guapo de lo que ya eres',
+    description: 'Algo pensado para que lo lleves contigo y te acompañe en tu día a día. Un detalle sencillo, que te hará lucir mucho más guapo de lo que ya eres',
   },
   {
     id: '2',
     title: 'Una alegría',
-    targetDate: new Date('2026-06-23T00:00:00'),
-    description: 'Una sorpresa que despertará todos tus sentidos. Está diseñado exclusivamente para disfrutarse en privado y asegurarme de dejarte con una sonrisa imborrable.',
+    targetDate: new Date('2026-06-22T00:00:00'),
+    description: 'Una sorpresa que despertará todos tus sentidos. Está diseñado exclusivamente para asegurarme de dejarte con una sonrisa imborrable.',
   },
   {
     id: '3',
     title: 'Para disfrutar a largo plazo',
     targetDate: new Date('2026-06-23T18:45:00'),
-    description: 'Para que nunca te quedes a medias y la energía siempre te acompañe. Para que puedas compartir amor, alegría y gratitud con tus seres queridos.',
+    description: 'Para que nunca te quedes a medias y puedas compartir amor, alegría y gratitud con tus seres queridos.',
   },
   {
     id: '4',
@@ -31,7 +31,7 @@ const events = [
     id: '5',
     title: 'Un recuerdo',
     targetDate: new Date('2026-06-26T19:40:00'),
-    description: 'Pedacitos de tiempo congelados. Algo que no se gasta, que no caduca y que servirá para seguir construyendo nuestra historia, además de permitirnos viajar al pasado.',
+    description: 'Algo que no se gasta, que no caduca y que servirá para seguir construyendo nuestra historia, además de permitirnos viajar al pasado.',
   },
   {
     id: '6',
