@@ -37,7 +37,7 @@ const events = [
     id: '6',
     title: 'Una sorpresa',
     targetDate: new Date('2026-06-27T12:00:00'),
-    description: 'Esto no se puede envolver con papel de regalo ni guardar en un cajón, pero te aseguro que te va a llenar el corazón.',
+    description: 'Es broma, de esto no vas a tener pistas porque sino no sería sorpresa!!.',
   },
 ];
 

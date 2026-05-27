@@ -1,0 +1,135 @@
+import { Resend } from 'resend';
+const RESEND_API_KEY = 're_BTwFM1NB_F8iksv1BgXVnQwkUbxUqP4RB'; 
+const ENLACE_WEB = 'https://ruben-birthday.vercel.app/'; 
+const CORREO_DESTINO = 'rubendelpo@gmail.com', 'rocioferb22@gmail.com'; 
+
+const resend = new Resend(re_BTwFM1NB_F8iksv1BgXVnQwkUbxUqP4RB);
+
+function generarPlantillaHTML(titulo, texto, textoBoton) {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset="utf-8"></head>
+    <body style="font-family: -apple-system, sans-serif; background-color: #f8f9fa; padding: 40px 20px; margin: 0;">
+      <div style="background-color: #ffffff; padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; text-align: center;">
+        <h1 style="color: #1a1a1a; font-size: 24px; font-weight: normal; margin: 0 0 24px 0;">Tus Regalos</h1>
+        <h2 style="color: #333333; font-size: 18px; font-weight: 500; margin: 0 0 16px 0;">${titulo}</h2>
+        <p style="color: #4a4a4a; font-size: 15px; line-height: 24px; margin: 0 0 32px 0;">${texto}</p>
+        ${textoBoton ? `
+        <div>
+          <a href="${'https://ruben-birthday.vercel.app/'}" style="background-color: #e5e7eb; color: #1a1a1a; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px; font-weight: 500;">
+            ${textoBoton}
+          </a>
+        </div>
+        ` : ''}
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+// ==========================================
+// LOS 9 CORREOS (REVISA BIEN ESTAS FECHAS)
+// ==========================================
+// Formato: AÑO-MES-DIAThora:minuto:segundo+02:00
+const listaCorreos = [
+  {
+    id: 1,
+    asunto: 'Un rincón especial para ti',
+    titulo: 'Tus Regalos',
+    texto: 'He creado un rincón muy especial. Un espacio pensado y diseñado con todo el cariño, esfuerzzo y calentamientos de cabeza para que disfrutes aún más de tus regalos. Ya puedes entrar a descubrirlo.',
+    boton: 'Descubrir espacio',
+    fechaEnvio: '2026-05-28T10:00:00+02:00' 
+  },
+  {
+    id: 2,
+    asunto: 'Ya falta muy poco... ⏳',
+    titulo: 'Cuenta atrás',
+    texto: 'Queda exactamente una semana para tu cumpleaños. Recuerda que tu web sigue ahí, esperando, y que tus regalos llegarán muy pronto.',
+    boton: 'Ver cuenta atrás',
+    fechaEnvio: '2026-06-15T00:00:00+02:00'
+  },
+  {
+    id: 3,
+    asunto: '¡Casi es tu día! 🎈',
+    titulo: 'Pronto es tu cumpleaños',
+    texto: 'Ha llegado la medianoche antes de tu cumpleaños. Tu día especial está a la vuelta de la esquina y, para ir calentando motores, ya se han desbloqueado las descripciones de tus dos primeros regalos.',
+    boton: 'Descubrir regalos',
+    fechaEnvio: '2026-06-21T00:00:00+02:00' 
+  },
+  {
+    id: 4,
+    asunto: 'Una nueva sorpresa disponible 🎁',
+    titulo: 'Un regalo más',
+    texto: 'Ya puedes entrar a la web para descubrir la descripción de tu tercer regalo. Espero de corazón que lo disfrutes muchísimo.',
+    boton: 'Ver descripción',
+    fechaEnvio: '2026-06-22T18:45:00+02:00'
+  },
+  {
+    id: 5,
+    asunto: 'El cuarto regalo te espera 💫',
+    titulo: 'Algo efímero, pero especial',
+    texto: 'Se ha abierto la descripción del cuarto regalo. Aunque este vaya a ser efímero, espero que te guste tanto como a mí dártelo.',
+    boton: 'Ver cuarto regalo',
+    fechaEnvio: '2026-06-24T21:25:00+02:00'
+  },
+    {
+    id: 6,
+    asunto: 'Una nota para ti ❤️',
+    titulo: 'Por y para ti',
+    texto: 'Se ha abierto la descripción del quinto regalo. Pero quiero recordarte lo mucho que te quiero y que sepas que todo esto, cada detalle y cada cuenta atrás, ha sido y siempre será por y para ti..',
+    boton: 'Ver cuarto regalo',
+    fechaEnvio: '2026-06-25T19:40:00+02:00'
+  },
+  {
+    id: 7,
+    asunto: 'Esto casi se acaba... 🥺',
+    titulo: 'La recta final',
+    texto: 'Quedan solo 2 días para que esta aventura llegue a su fin. Espero que estés disfrutando de la experiencia y de cada detalle tanto como yo lo he hecho preparándolo.',
+    boton: 'Ver estado actual',
+    fechaEnvio: '2026-06-25T12:30:00+02:00'
+  },
+  {
+    id: 8,
+    asunto: 'Penúltima sorpresa 🎁',
+    titulo: 'Una nueva descripción',
+    texto: 'Queda solo un día para el final y se ha abierto una nueva descripción en tu web. Entra a verla antes de que este viaje termine.',
+    boton: 'Ver última descripción',
+    fechaEnvio: '2026-06-26T12:30:00+02:00'
+  },
+  {
+    id: 9,
+    asunto: 'El final de la cuenta atrás 🎉',
+    titulo: 'Fin del viaje',
+    texto: 'Hemos llegado al final. Ya están todas las sorpresas al descubierto. Espero que hayas disfrutado de este pequeño rincón digital tanto como yo he disfrutado creándolo para ti. ¡Te quiero! ❤️',
+    boton: 'Ver web completa',
+    fechaEnvio: '2026-06-27T21:00:00+02:00'
+  }
+];
+
+async function programarTodosLosCorreos() {
+  console.log('Iniciando la programación de los 9 correos...');
+  
+  for (const correo of listaCorreos) {
+    try {
+      const htmlContenido = generarPlantillaHTML(correo.titulo, correo.texto, correo.boton);
+      
+      await resend.emails.send({
+        from: 'Tus Regalos <onboarding@resend.dev>',
+        to: 'rubendelpo@gmail.com', 'rocioferb22@gmail.com',
+        subject: correo.asunto,
+        html: htmlContenido,
+        scheduledAt: correo.fechaEnvio
+      });
+      
+      console.log(`✅ Correo "${correo.titulo}" programado para: ${correo.fechaEnvio}`);
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+    } catch (error) {
+      console.error(`❌ Error al programar el correo "${correo.titulo}":`, error.message);
+    }
+  }
+  console.log('\n¡Proceso terminado! Ya están todos programados. Revisa la web de Resend.');
+}
+
+programarTodosLosCorreos();

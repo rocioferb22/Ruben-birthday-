@@ -1,7 +1,7 @@
-const { Resend } = require('resend');
-const RESEND_API_KEY = 'TU_API_KEY_AQUÍ'; // Pega aquí tu código re_...
-const MI_CORREO = 'tu-correo-personal@gmail.com'; // Pon AQUÍ tu correo para recibir la prueba
-const ENLACE_WEB = 'https://tu-web.vercel.app';
+import { Resend } from 'resend';
+const RESEND_API_KEY = 're_BTwFM1NB_F8iksv1BgXVnQwkUbxUqP4RB'; // Pega aquí tu código re_...
+const MI_CORREO = 'rocioferb22@gmail.com'; // Pon AQUÍ tu correo para recibir la prueba
+const ENLACE_WEB = 'https://ruben-birthday.vercel.app/';
 
 const resend = new Resend(RESEND_API_KEY);
 
@@ -17,7 +17,7 @@ const htmlContenido = `
         <p style="color: #4a4a4a; font-size: 15px; margin: 0 0 32px 0;">
           Si estás leyendo esto a las 23:00, significa que el sistema automático de Resend funciona a la perfección.
         </p>
-        <a href="${ENLACE_WEB}" style="background-color: #e5e7eb; color: #1a1a1a; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px; font-weight: 500;">
+        <a href="${'https://ruben-birthday.vercel.app/'}" style="background-color: #e5e7eb; color: #1a1a1a; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px; font-weight: 500;">
           Ir a la web
         </a>
       </div>
@@ -28,10 +28,10 @@ const htmlContenido = `
   try {
     await resend.emails.send({
       from: 'Prueba Sistema <onboarding@resend.dev>',
-      to: rocioferb22@gmail.com,
+      to: 'rocioferb22@gmail.com',
       subject: 'Prueba de automatización 🧪',
       html: htmlContenido,
-      scheduledAt: '2026-05-27T23:00:00+02:00'
+      scheduledAt: '2026-05-27T23:10:00+02:00'
     });
     
     console.log('✅ ¡Éxito! El correo de prueba se ha dejado programado para las 23:00.');
