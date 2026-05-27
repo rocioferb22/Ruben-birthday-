@@ -1,0 +1,45 @@
+const { Resend } = require('resend');
+const RESEND_API_KEY = 'TU_API_KEY_AQUÍ'; // Pega aquí tu código re_...
+const MI_CORREO = 'tu-correo-personal@gmail.com'; // Pon AQUÍ tu correo para recibir la prueba
+const ENLACE_WEB = 'https://tu-web.vercel.app';
+
+const resend = new Resend(RESEND_API_KEY);
+
+async function enviarPrueba() {
+  console.log('Programando el correo de prueba...');
+const htmlContenido = `
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset="utf-8"></head>
+    <body style="font-family: -apple-system, sans-serif; background-color: #f8f9fa; padding: 40px 20px; margin: 0;">
+      <div style="background-color: #ffffff; padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; text-align: center;">
+        <h1 style="color: #1a1a1a; font-size: 24px; margin: 0 0 16px 0;">¡Prueba superada! 🎉</h1>
+        <p style="color: #4a4a4a; font-size: 15px; margin: 0 0 32px 0;">
+          Si estás leyendo esto a las 23:00, significa que el sistema automático de Resend funciona a la perfección.
+        </p>
+        <a href="${ENLACE_WEB}" style="background-color: #e5e7eb; color: #1a1a1a; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px; font-weight: 500;">
+          Ir a la web
+        </a>
+      </div>
+    </body>
+    </html>
+  `;
+
+  try {
+    await resend.emails.send({
+      from: 'Prueba Sistema <onboarding@resend.dev>',
+      to: MI_CORREO,
+      subject: 'Prueba de automatización 🧪',
+      html: htmlContenido,
+      // Programado para hoy (27 de mayo de 2026) a las 23:00 hora peninsular española
+      scheduledAt: '2026-05-27T23:00:00+02:00'
+    });
+    
+    console.log('✅ ¡Éxito! El correo de prueba se ha dejado programado para las 23:00.');
+    console.log('Puedes entrar en la web de Resend (sección Emails) para comprobar que está "Scheduled".');
+  } catch (error) {
+    console.error('❌ Error al programar la prueba:', error.message);
+  }
+}
+
+enviarPrueba();

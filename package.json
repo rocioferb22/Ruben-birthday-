@@ -86,5 +86,18 @@
     "overrides": {
       "vite": "6.3.5"
     }
-  }
+  },
+  "description": "This is a code bundle for Web con títulos y descripciones. The original project is available at https://www.figma.com/design/Ea04kwcEolOfAeAcqtO6QD/Web-con-t%C3%ADtulos-y-descripciones.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocioferb22/Ruben-birthday-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rocioferb22/Ruben-birthday-/issues"
+  },
+  "homepage": "https://github.com/rocioferb22/Ruben-birthday-#readme"
 }
